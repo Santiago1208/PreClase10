@@ -33,6 +33,7 @@ public class PhotoListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_items_list);
+
         titlePhotolist = findViewById(R.id.title_album);
         addPhotoBtn = findViewById(R.id.addPhotoBtn);
         photoLV = findViewById(R.id.photoLV);
@@ -69,7 +70,7 @@ public class PhotoListActivity extends AppCompatActivity {
                         .setPositiveButton("Eliminar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                CRUDPhoto.deteleTask(list.get(pos));
+                                CRUDPhoto.detelePhoto(list.get(pos));
                                 refreshTasks();
                                 dialogInterface.dismiss();
                             }
@@ -89,7 +90,7 @@ public class PhotoListActivity extends AppCompatActivity {
     }
 
     private void refreshTasks() {
-        ArrayList<Photo> group = CRUDPhoto.getAllTaskOfTasklist(album);
+        ArrayList<Photo> group = CRUDPhoto.getAllPhotosOfAlbum(album);
         list.clear();
         for(int i=0 ; i<group.size() ; i++){
             list.add(group.get(i));

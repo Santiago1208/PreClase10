@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,6 +24,7 @@ public class NewPhotoActivity extends AppCompatActivity {
     private EditText photoNameEt;
     private EditText photoDescNameEt;
     private TextView photoFkTv;
+    private ImageView pictureTaked;
     private Button photoCreateBTN;
 
     //Se generan desde el principio
@@ -36,11 +38,13 @@ public class NewPhotoActivity extends AppCompatActivity {
         album = (Album) getIntent().getExtras().getSerializable("album");
 
 
+        pictureTaked = findViewById(R.id.pictureTaked);
+        photoCreateBTN = findViewById(R.id.photoCreateBTN);
+
         photoIdTv = findViewById(R.id.photoIdTv);
         photoNameEt = findViewById(R.id.photoNameEt);
         photoDescNameEt = findViewById(R.id.photoDescNameEt);
         photoFkTv = findViewById(R.id.photoFkTv);
-        photoCreateBTN = findViewById(R.id.photoCreateBTN);
 
         id = UUID.randomUUID().toString();
         photoIdTv.setText("ID: "+id);
@@ -51,7 +55,7 @@ public class NewPhotoActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Photo task = new Photo(id, photoNameEt.getText().toString(), photoDescNameEt.getText().toString(), 0);
-                CRUDPhoto.insertTask(album, task);
+                CRUDPhoto.insertPhoto(album, task);
                 finish();
             }
         });

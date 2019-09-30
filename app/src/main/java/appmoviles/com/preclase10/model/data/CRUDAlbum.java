@@ -12,7 +12,7 @@ import appmoviles.com.preclase10.model.entity.Album;
 
 public class CRUDAlbum {
 
-    public static void insertTasklist(Album album){
+    public static void insertAlbum(Album album){
         DBDriver driver = DBDriver.getInstance(AlbumApp.getAppContext());
         SQLiteDatabase db = driver.getWritableDatabase();
 
@@ -31,7 +31,7 @@ public class CRUDAlbum {
         db.close();
     }
 
-    public static ArrayList<Album> getAllTasklist(){
+    public static ArrayList<Album> getAllAlbums(){
         DBDriver driver = DBDriver.getInstance(AlbumApp.getAppContext());
         SQLiteDatabase db = driver.getReadableDatabase();
         ArrayList<Album> group = new ArrayList<>();
@@ -54,14 +54,14 @@ public class CRUDAlbum {
         return group;
     }
 
-    public static void deteleTaskList(Album tasklist) {
+    public static void deteleAlbum(Album album) {
         DBDriver driver = DBDriver.getInstance(AlbumApp.getAppContext());
         SQLiteDatabase db = driver.getWritableDatabase();
         String sql = "DELETE FROM $TABLE WHERE $ID = '$FID'";
         sql = sql
                 .replace("$TABLE", DBDriver.TABLE_ALBUM)
                 .replace("$ID",DBDriver.ALBUM_ID)
-                .replace("$FID",tasklist.getId());
+                .replace("$FID",album.getId());
         db.execSQL(sql);
         db.close();
     }

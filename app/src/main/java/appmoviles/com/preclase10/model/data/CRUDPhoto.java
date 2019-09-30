@@ -14,7 +14,7 @@ import appmoviles.com.preclase10.model.entity.Photo;
 public class CRUDPhoto {
 
 
-    public static void insertTask(Album album, Photo photo){
+    public static void insertPhoto(Album album, Photo photo){
         DBDriver driver = DBDriver.getInstance(AlbumApp.getAppContext());
         SQLiteDatabase db = driver.getWritableDatabase();
 
@@ -37,7 +37,7 @@ public class CRUDPhoto {
     }
 
 
-    public static ArrayList<Photo> getAllTaskOfTasklist(Album album){
+    public static ArrayList<Photo> getAllPhotosOfAlbum(Album album){
         DBDriver driver = DBDriver.getInstance(AlbumApp.getAppContext());
         SQLiteDatabase db = driver.getReadableDatabase();
         ArrayList<Photo> group = new ArrayList<>();
@@ -65,7 +65,7 @@ public class CRUDPhoto {
     }
 
 
-    public static void deteleTask(Photo photo) {
+    public static void detelePhoto(Photo photo) {
         DBDriver driver = DBDriver.getInstance(AlbumApp.getAppContext());
         SQLiteDatabase db = driver.getWritableDatabase();
         String sql = "DELETE FROM $TABLE WHERE $ID = '$FID'";
@@ -77,16 +77,16 @@ public class CRUDPhoto {
         db.close();
     }
 
-    public static void increaseViews(Photo task) {
+    public static void increaseViews(Photo photo) {
         DBDriver driver = DBDriver.getInstance(AlbumApp.getAppContext());
         SQLiteDatabase db = driver.getWritableDatabase();
         String sql = "UPDATE $TABLE SET $COMPLETE=$VCOMPLETE WHERE $ID = '$FID'";
         sql = sql
                 .replace("$TABLE", DBDriver.TABLE_PHOTO)
                 .replace("$COMPLETE", DBDriver.PHOTO_VIEWS)
-                .replace("$VCOMPLETE", ""+(task.getViews()+1))
+                .replace("$VCOMPLETE", ""+(photo.getViews()+1))
                 .replace("$ID",DBDriver.PHOTO_ID)
-                .replace("$FID",task.getId());
+                .replace("$FID",photo.getId());
         db.execSQL(sql);
         db.close();
     }

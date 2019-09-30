@@ -61,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
                         .setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                CRUDAlbum.deteleTaskList(list.get(pos));
+                                CRUDAlbum.deteleAlbum(list.get(pos));
                                 refreshTaskList();
                                 dialogInterface.dismiss();
                             }
@@ -89,7 +89,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void refreshTaskList() {
-        ArrayList<Album> group = CRUDAlbum.getAllTasklist();
+        ArrayList<Album> group = CRUDAlbum.getAllAlbums();
         list.clear();
         for(int i=0 ; i<group.size() ; i++){
             list.add(group.get(i));

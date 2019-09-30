@@ -4,7 +4,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,8 +23,7 @@ public class NewAlbumActivity extends AppCompatActivity {
     private EditText albumNameEt;
     private TextView albumDateTv;
     private Button albumCreateBTN;
-    private ImageView pictureTaked;
-    private Button photoCreateBTN;
+
 
     //Se generan cuando se inicia la actividad
     private String id;
@@ -38,8 +36,6 @@ public class NewAlbumActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_album);
 
-        pictureTaked = findViewById(R.id.pictureTaked);
-        photoCreateBTN = findViewById(R.id.photoCreateBTN);
         albumIdTv = findViewById(R.id.albumIdTv);
         albumNameEt = findViewById(R.id.albumNameEt);
         albumDateTv = findViewById(R.id.albumDateTv);
@@ -56,7 +52,7 @@ public class NewAlbumActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Album tasklist = new Album(id, albumNameEt.getText().toString(),date);
-                CRUDAlbum.insertTasklist(tasklist);
+                CRUDAlbum.insertAlbum(tasklist);
                 finish();
             }
         });
