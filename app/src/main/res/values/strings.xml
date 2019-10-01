@@ -15,4 +15,5 @@
     <string name="lorem_count">999 views</string>
     <string name="takePhotoBTN">Take picture</string>
     <string name="deleteButton">X</string>
+    <string name="openGalBTN">Open galery</string>
 </resources>
