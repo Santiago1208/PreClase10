@@ -14,4 +14,5 @@
     <string name="lorem_content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua.</string>
     <string name="lorem_count">999 views</string>
     <string name="takePhotoBTN">Take picture</string>
+    <string name="deleteButton">X</string>
 </resources>
