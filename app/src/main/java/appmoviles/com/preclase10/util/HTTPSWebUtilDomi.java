@@ -23,9 +23,7 @@ import javax.net.ssl.SSLSession;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
 
-/**
- * Created by Juliana on 20/08/2015.
- */
+
 public class HTTPSWebUtilDomi {
 
     public HTTPSWebUtilDomi() {
