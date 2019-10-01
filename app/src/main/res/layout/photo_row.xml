@@ -38,6 +38,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:id="@+id/row_name"
                     android:text="@string/lorem_title"
                     android:textSize="20dp" />
 
@@ -47,6 +48,7 @@
                     android:layout_marginBottom="20dp"
                     android:layout_weight="1"
                     android:text="@string/lorem_count"
+                    android:id="@+id/row_views"
                     android:textAlignment="textEnd"
                     android:textSize="20dp" />
 
@@ -57,6 +59,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/row_description"
                 android:text="@string/lorem_content"
                 android:textSize="20dp" />
 
