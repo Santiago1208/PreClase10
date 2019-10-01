@@ -24,6 +24,7 @@ public class NewPhotoActivity extends AppCompatActivity {
     private EditText photoNameEt;
     private EditText photoDescNameEt;
     private TextView photoFkTv;
+    private Button takePhotoBTN;
     private ImageView pictureTaked;
     private Button photoCreateBTN;
 
@@ -40,6 +41,8 @@ public class NewPhotoActivity extends AppCompatActivity {
 
         pictureTaked = findViewById(R.id.pictureTaked);
         photoCreateBTN = findViewById(R.id.photoCreateBTN);
+        takePhotoBTN = findViewById(R.id.takePhotoBTN);
+
 
         photoIdTv = findViewById(R.id.photoIdTv);
         photoNameEt = findViewById(R.id.photoNameEt);
