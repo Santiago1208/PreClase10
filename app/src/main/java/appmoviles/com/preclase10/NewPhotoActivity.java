@@ -25,6 +25,7 @@ public class NewPhotoActivity extends AppCompatActivity {
     private EditText photoDescNameEt;
     private TextView photoFkTv;
     private Button takePhotoBTN;
+    private Button openGalBTN;
     private ImageView pictureTaked;
     private Button photoCreateBTN;
 
@@ -38,11 +39,10 @@ public class NewPhotoActivity extends AppCompatActivity {
         setContentView(R.layout.activity_new_photo);
         album = (Album) getIntent().getExtras().getSerializable("album");
 
-
         pictureTaked = findViewById(R.id.pictureTaked);
         photoCreateBTN = findViewById(R.id.photoCreateBTN);
         takePhotoBTN = findViewById(R.id.takePhotoBTN);
-
+        openGalBTN = findViewById(R.id.openGalBTN);
 
         photoIdTv = findViewById(R.id.photoIdTv);
         photoNameEt = findViewById(R.id.photoNameEt);
@@ -52,7 +52,6 @@ public class NewPhotoActivity extends AppCompatActivity {
         id = UUID.randomUUID().toString();
         photoIdTv.setText("ID: "+id);
         photoFkTv.setText("The photo will be added to the album "+ album.getName());
-
 
         photoCreateBTN.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -44,13 +44,29 @@
             android:layout_marginBottom="10dp"
             android:hint="@string/FkTV" />
 
-
-        <Button
-            android:id="@+id/takePhotoBTN"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="40dp"
-            android:hint="@string/takePhotoBTN" />
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/takePhotoBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="40dp"
+                android:hint="@string/takePhotoBTN" />
+
+            <Button
+                android:id="@+id/openGalBTN"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginBottom="40dp"
+                android:hint="@string/takePhotoBTN" />
+
+        </LinearLayout>
+
 
         <ImageView
             android:id="@+id/pictureTaked"
