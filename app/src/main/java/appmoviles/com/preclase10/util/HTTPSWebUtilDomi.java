@@ -109,7 +109,7 @@ public class HTTPSWebUtilDomi {
 
     }
 
-    public static String PUTrequest(String url, String json) throws IOException {
+    public String PUTrequest(String url, String json) throws IOException {
         URL page = new URL(url);
         HttpsURLConnection connection = (HttpsURLConnection) page.openConnection();
         connection.setRequestMethod("PUT");
@@ -140,7 +140,7 @@ public class HTTPSWebUtilDomi {
         return new String(bytes.toByteArray(), "UTF-8");
     }
 
-    public static String DELETErequest(String url, String json) throws IOException {
+    public String DELETErequest(String url, String json) throws IOException {
         URL page = new URL(url);
         HttpsURLConnection connection = (HttpsURLConnection) page.openConnection();
         connection.setRequestMethod("DELETE");
