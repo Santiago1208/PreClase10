@@ -14,7 +14,9 @@
             android:layout_height="300dp"
             android:background="#666"
             android:scaleType="centerCrop"
-            android:src="@drawable/ic_launcher_foreground" />
+            android:src="@drawable/abc_vector_test"/>
+
+
 
         <RelativeLayout
             android:layout_width="match_parent"

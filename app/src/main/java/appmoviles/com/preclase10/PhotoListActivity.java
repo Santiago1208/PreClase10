@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
+import appmoviles.com.preclase10.control.adapters.PhotoAdapter;
 import appmoviles.com.preclase10.model.data.CRUDPhoto;
 import appmoviles.com.preclase10.model.entity.Album;
 import appmoviles.com.preclase10.model.entity.Photo;
@@ -26,8 +27,7 @@ public class PhotoListActivity extends AppCompatActivity {
     private Album album;
     private Button addPhotoBtn;
     private ListView photoLV;
-    private ArrayAdapter<Photo> adapter;
-    private ArrayList<Photo> list;
+    private PhotoAdapter photoAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,9 +37,8 @@ public class PhotoListActivity extends AppCompatActivity {
         titlePhotolist = findViewById(R.id.title_album);
         addPhotoBtn = findViewById(R.id.addPhotoBtn);
         photoLV = findViewById(R.id.photoLV);
-        list = new ArrayList<>();
-        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, list);
-        photoLV.setAdapter(adapter);
+        photoAdapter = new PhotoAdapter();
+        photoLV.setAdapter(photoAdapter);
 
 
         album = (Album) getIntent().getExtras().getSerializable("album");
@@ -70,7 +69,7 @@ public class PhotoListActivity extends AppCompatActivity {
                         .setPositiveButton("Eliminar", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialogInterface, int i) {
-                                CRUDPhoto.detelePhoto(list.get(pos));
+                                CRUDPhoto.detelePhoto((Photo) photoAdapter.getItem(i));
                                 refreshTasks();
                                 dialogInterface.dismiss();
                             }
@@ -91,11 +90,11 @@ public class PhotoListActivity extends AppCompatActivity {
 
     private void refreshTasks() {
         ArrayList<Photo> group = CRUDPhoto.getAllPhotosOfAlbum(album);
-        list.clear();
+        photoAdapter.clear();
         for(int i=0 ; i<group.size() ; i++){
-            list.add(group.get(i));
+            photoAdapter.addPhoto(group.get(i));
         }
-        adapter.notifyDataSetChanged();
+        photoAdapter.notifyDataSetChanged();
     }
 
 }

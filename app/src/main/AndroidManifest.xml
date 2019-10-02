@@ -2,6 +2,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="appmoviles.com.preclase10">
 
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:name=".app.AlbumApp"
         android:allowBackup="true"
@@ -20,6 +25,18 @@
         <activity android:name=".PhotoListActivity"/>
         <activity android:name=".NewPhotoActivity"/>
         <activity android:name=".NewAlbumActivity"/>
+
+        <provider
+            android:authorities="${applicationId}"
+            android:name="androidx.core.content.FileProvider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+
+            <meta-data android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/provider_path"></meta-data>
+
+        </provider>
+
     </application>
 
 </manifest>

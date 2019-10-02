@@ -69,7 +69,7 @@
 
 
         <ImageView
-            android:id="@+id/pictureTaked"
+            android:id="@+id/pictureTaken"
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:scaleType="centerCrop" />
